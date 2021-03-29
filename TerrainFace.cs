@@ -61,7 +61,7 @@ public class TerrainFace {
 
     public void UpdateUVs(ColorGenerator colorGenerator)
     {
-        Vector2[] uv = new Vector2[resolution * resolution;] 
+        Vector2[] uv = new Vector2[resolution * resolution]; 
 
         for (int y = 0; y < resolution; y++)
         {
