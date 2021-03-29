@@ -111,3 +111,24 @@ MonoBehaviour:
       tint: {r: 0.94509804, g: 0.83906335, b: 0.09411764, a: 0}
       startHeight: 0.425
       tintPercent: 1
+    noise:
+      filterType: 0
+      simpleNoiseSettings:
+        strength: 1
+        numLayers: 2
+        baseRoughness: 1
+        roughness: 2
+        persistence: 0.5
+        center: {x: 0, y: 0, z: 0}
+        minValue: 0
+      rigidNoiseSettings:
+        strength: 1
+        numLayers: 1
+        baseRoughness: 1
+        roughness: 2
+        persistence: 0.5
+        center: {x: 0, y: 0, z: 0}
+        minValue: 0
+        weightMultiplier: 0.8
+    noiseOffset: 0
+    noiseStrength: -0.15
