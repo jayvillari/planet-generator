@@ -30,17 +30,14 @@ public class ColorGenerator
         heightPercent += (biomeNoiseFilter.Evaluate(pointOnUnitSphere)-settings.biomeColorSettings.noiseOffset) * settings.biomeColorSettings.noiseStrength;
         float biomeIndex = 0;
         int numBiomes = settings.biomeColorSettings.biomes.Length;
+        float blendRange = settings.biomeColorSettings.blendAmount / 2f + .001f;
 
         for (int i = 0; i < numBiomes; i++)
         {
-            if (settings.biomeColorSettings.biomes[i].startHeight < heightPercent)
-            {
-                biomeIndex = i;
-            }
-            else
-            {
-                break;
-            }
+            float dst = heightPercent - settings.biomeColorSettings.biomes[i].startHeight;
+            float weight = Mathf.InverseLerp(-blendRange, blendRange, dst);
+            biomeIndex *= (1 - weight);
+            biomeIndex += i * weight;
         }
 
         return biomeIndex / Mathf.Max(1, numBiomes - 1);
